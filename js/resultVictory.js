@@ -1,4 +1,7 @@
 import getElementFromTemplate from './getElementFromTemplate';
+import renderScreen from './renderScreen';
+import welcomElement from './welcom';
+import {renderArtistScreen} from './welcom';
 
 const resultVictoryElement = getElementFromTemplate(`<section class="main main--result">
   <section class="logo" title="Угадай мелодию"><h1>Угадай мелодию</h1></section>
@@ -12,3 +15,9 @@ const resultVictoryElement = getElementFromTemplate(`<section class="main main--
 </section>`);
 
 export default resultVictoryElement;
+
+export const renderWelcomScreen = () => {
+  const button = document.querySelector(`.main-replay`);
+  console.log(button);
+  button.onclick = () => renderScreen(welcomElement, renderArtistScreen);
+}

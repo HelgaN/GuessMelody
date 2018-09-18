@@ -1,4 +1,9 @@
 import getElementFromTemplate from './getElementFromTemplate';
+import renderScreen from './renderScreen';
+import resultVictoryElement from './resultVictory';
+import resultLossElement from './resultLoss';
+import {renderWelcomScreen} from './resultVictory';
+import welcomElement from './welcom';
 
 const levelGenreElement = getElementFromTemplate(`  <section class="main main--level main--level-genre">
     <a class="play-again play-again__wrap" href="#">
@@ -87,3 +92,17 @@ const levelGenreElement = getElementFromTemplate(`  <section class="main main--l
   </section>`);
 
   export default levelGenreElement;
+
+  export const renderResultScreen = () => {
+    const answers = document.querySelectorAll(`input[name='answer']`);
+    const button = document.querySelector(`.genre-answer-send`);
+    button.disabled = true;
+
+    answers.forEach((answer)=> {
+      answer.onchange = () => (answer.checked === true) ? button.disabled = false: button.disabled = true;
+      const numRandom = Math.random();
+      let screen;
+      (numRandom > 0.5) ? screen = resultVictoryElement : screen = resultLossElement;
+      button.onclick = () => renderScreen(screen, renderWelcomScreen);
+    });
+  }

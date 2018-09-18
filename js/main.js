@@ -1,9 +1,15 @@
 import getElementFromTemplate from './getElementFromTemplate';
 import renderScreen from './renderScreen';
 import welcomElement from './welcom';
+import levelArtistElement from './levelArtist';
+import {renderArtistScreen} from './welcom';
 
-renderScreen(welcomElement);
-console.log();
+renderScreen(welcomElement, renderArtistScreen);
+
+
+
+
+
 
 
 

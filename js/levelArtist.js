@@ -1,4 +1,7 @@
 import getElementFromTemplate from './getElementFromTemplate';
+import renderScreen from './renderScreen';
+import levelGenreElement from './levelGenre';
+import {renderResultScreen} from './levelGenre';
 
 const levelArtistElement = getElementFromTemplate(`<section class="main main--level main--level-artist">
   <a class="play-again play-again__wrap" href="#">
@@ -64,3 +67,10 @@ const levelArtistElement = getElementFromTemplate(`<section class="main main--le
 </section>`);
 
 export default levelArtistElement;
+
+export const renderGenreScreen = () => {
+  const answers = document.querySelectorAll(`.main-answer`);
+  answers.forEach((answer)=> {
+    answer.onclick = () => renderScreen(levelGenreElement, renderResultScreen);
+  });
+}
