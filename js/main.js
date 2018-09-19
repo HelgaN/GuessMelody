@@ -3,15 +3,9 @@ import renderScreen from './renderScreen';
 import welcomElement from './welcom';
 import levelArtistElement from './levelArtist';
 import {renderArtistScreen} from './welcom';
+import header from './header';
 
 renderScreen(welcomElement, renderArtistScreen);
-
-
-
-
-
-
-
 
 
 /*
