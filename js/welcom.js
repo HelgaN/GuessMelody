@@ -5,20 +5,20 @@ import levelArtistElement from './levelArtist';
 import {renderGenreScreen} from './levelArtist';
 import {initialState, levels} from './data/data';
 
-const welcomRulesDescription = `<h2 class="title main-title">Правила игры</h2>
-<p class="text main-text">
-  Правила просты&nbsp;— за&nbsp;5 минут ответить на все вопросы.<br>
-  Ошибиться можно 3 раза.<br>
-  Удачи!
-</p>`;
+export default (data) => {
+  const welcomRulesDescription = `<h2 class="title main-title">${data.content.title}</h2>
+  <p class="text main-text">
+    ${data.content.rules}
+  </p>`;
 
-const welcomElement = getElementFromTemplate(`<section class="main main--welcome">
-  ${logo}
-  <button class="main-play">Начать игру</button>
-  ${welcomRulesDescription}
-</section>`);
+  const welcomElement = `<section class="main main--welcome">
+    ${logo(data.logo.title)}
+    <button class="main-play">${data.content.button}</button>
+    ${welcomRulesDescription}
+  </section>`;
 
-export default welcomElement;
+  return getElementFromTemplate(welcomElement);
+};
 
 export const renderArtistScreen = () => {
   const playButton = document.querySelector(`.main-play`);

@@ -1,5 +1,5 @@
 const renderScreen = (element, renderNextScreen) => {
-  const app = document.querySelector(`.app`);
+  const app = document.querySelector(`.main`);
   app.innerHTML = ``;
   app.appendChild(element.cloneNode(true));
   renderNextScreen();

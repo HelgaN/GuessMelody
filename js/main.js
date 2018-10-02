@@ -4,8 +4,9 @@ import welcomElement from './welcom';
 import levelArtistElement from './levelArtist';
 import {renderArtistScreen} from './welcom';
 import header from './header';
+import {welcomData} from './data/data';
 
-renderScreen(welcomElement, renderArtistScreen);
+renderScreen(welcomElement(welcomData), renderArtistScreen);
 
 
 /*

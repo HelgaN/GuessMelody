@@ -35,4 +35,19 @@ const levels = Object.freeze({
   }
 });
 
-export {initialState, levels};
+const welcomData = {
+  logo: {
+    title: `Угадай мелодию`
+  },
+
+  content: {
+    title: `Правила игры`,
+    rules: `Правила просты&nbsp;— за&nbsp;5 минут ответить на все вопросы.<br>
+    Ошибиться можно 3 раза.<br>
+    Удачи!`,
+    button: `Начать игру`
+  }
+
+}
+
+export {initialState, levels, welcomData, logoData};
