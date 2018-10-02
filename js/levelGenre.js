@@ -5,6 +5,7 @@ import resultLossElement from './resultLoss';
 import {renderWelcomScreen} from './resultVictory';
 import welcomElement from './welcom';
 import headerTemplate from './header';
+import {lossData, victoryData} from './data/data';
 
 export default (level) => {
   const levelGenreElement = `<section class="main main--level main--level-genre">
@@ -46,7 +47,7 @@ export default (level) => {
       answer.onchange = () => (answer.checked === true) ? button.disabled = false: button.disabled = true;
       const numRandom = Math.random();
       let screen;
-      (numRandom > 0.5) ? screen = resultVictoryElement : screen = resultLossElement;
+      (numRandom > 0.5) ? screen = resultVictoryElement(victoryData) : screen = resultLossElement(lossData);
       button.onclick = () => renderScreen(screen, renderWelcomScreen);
     });
   }

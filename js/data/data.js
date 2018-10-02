@@ -47,7 +47,35 @@ const welcomData = {
     Удачи!`,
     button: `Начать игру`
   }
-
 }
 
-export {initialState, levels, welcomData, logoData};
+const lossData = {
+  logo: {
+    title: `Угадай мелодию`
+  },
+
+  content: {
+    title: `Увы и ах!`,
+    main: `Время вышло!<br>Вы не успели отгадать все мелодии`,
+    button: `Попробовать ещё раз`
+  }
+}
+
+// условные статичные данные
+
+const victoryData = {
+  logo: {
+    title: `Угадай мелодию`
+  },
+
+  content: {
+    title: `Вы настоящий меломан!`,
+    main: `За&nbsp;3&nbsp;минуты и 25&nbsp;секунд
+      <br>вы&nbsp;набрали 12 баллов (8 быстрых)
+      <br>совершив 3 ошибки`,
+    comparison: `Вы заняли 2 место из 10. Это&nbsp;лучше чем у&nbsp;80%&nbsp;игроков`,
+    button: `Сыграть ещё раз`
+  }
+}
+
+export {initialState, levels, welcomData, logoData, lossData, victoryData};
