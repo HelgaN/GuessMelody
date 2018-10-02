@@ -22,5 +22,5 @@ export default (data) => {
 
 export const renderArtistScreen = () => {
   const playButton = document.querySelector(`.main-play`);
-  playButton.onclick = () => renderScreen(levelArtistElement(levels[initialState.level]), renderGenreScreen);
+  playButton.onclick = () => renderScreen(levelArtistElement(levels[`level-0`]), renderGenreScreen);
 }
