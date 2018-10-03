@@ -5,7 +5,18 @@ import resultLossElement from './resultLoss';
 import {renderWelcomScreen} from './resultVictory';
 import welcomElement from './welcom';
 import headerTemplate from './header';
-import {lossData, victoryData} from './data/data';
+import {lossData, victoryData, levels} from './data/data';
+import initializePlayer from './player';
+
+/*
+<div class="player">
+  <audio></audio>
+  <button class="player-control player-control--pause"></button>
+  <div class="player-track">
+    <span class="player-status"></span>
+  </div>
+</div>
+*/
 
 export default (level) => {
   const levelGenreElement = `<section class="main main--level main--level-genre">
@@ -18,13 +29,8 @@ export default (level) => {
           ${[...level.answers.entries()].map(([answer], i) => `
             <div class="genre-answer">
               <div class="player-wrapper">
-                <div class="player">
-                  <audio></audio>
-                  <button class="player-control player-control--pause"></button>
-                  <div class="player-track">
-                    <span class="player-status"></span>
-                  </div>
-                </div>
+
+
               </div>
               <input type="checkbox" name="answer" value="answer-${i+1}" id="${answer}">
               <label class="genre-answer-check" for="${answer}"></label>
@@ -39,6 +45,12 @@ export default (level) => {
   };
 
   export const renderResultScreen = () => {
+    const playerWrappers = document.querySelectorAll(`.player-wrapper`);
+
+    playerWrappers.forEach((item, i) => {
+      initializePlayer(item, levels[`level-1`].question.src[i]);
+    });
+
     const answers = document.querySelectorAll(`input[name='answer']`);
     const button = document.querySelector(`.genre-answer-send`);
     button.disabled = true;

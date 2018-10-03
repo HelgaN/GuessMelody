@@ -18,7 +18,7 @@ const levels = Object.freeze({
     type: `level-artist`,
     title: `Кто исполняет эту песню?`,
     question: {
-      src: `sound/track1.mp3`,
+      src: `sound/Donors-LetterBox.mp3`,
       answer: `Пелагея`
     },
     answers: new Set([`Пелагея`, `Краснознаменная дивизия имени моей бабушки`, `Lorde`])
@@ -28,7 +28,7 @@ const levels = Object.freeze({
     type: `level-genre`,
     title: `Выберите инди-рок треки`,
     question: {
-      src: [`sound/track1.mp3`, `sound/track2.mp3`, `sound/track3.mp3`, `sound/track4.mp3`],
+      src: [`sound/MotelRock-HanuDixit.mp3`, `sound/MountainDub-GunnarOlsen.mp3`, `sound/NoCulture-SilentPartner.mp3`, `sound/YouAreMyRainbow-UnicornHeads.mp3`],
       answers: [false, true, true, false]
     },
     answers: new Set([`a-1`, `a-2`, `a-3`, `a-4`])

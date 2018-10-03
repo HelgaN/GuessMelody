@@ -28,9 +28,20 @@
   </section>
 </div>
 
+<template id="template">
+  <div class="player">
+    <audio></audio>
+    <button class="player-control" type="button"></button>
+    <div class="player-track">
+      <span class="player-status"></span>
+    </div>
+  </div>
+</template>
+
+<!--
 <template id="templates">
 
-  <!-- Приветствие -->
+   Приветствие
   <section class="main main--welcome">
     <section class="logo" title="Угадай мелодию"><h1>Угадай мелодию</h1></section>
     <button class="main-play">Начать игру</button>
@@ -42,7 +53,7 @@
     </p>
   </section>
 
-  <!-- Игра на выбор жанра -->
+   Игра на выбор жанра
   <section class="main main--level main--level-genre">
     <a class="play-again play-again__wrap" href="#">
       <img class="play-again__img" src="/img/melody-logo-ginger.png" alt="logo" width="177" height="76">
@@ -54,9 +65,9 @@
         style="filter: url(.#blur); transform: rotate(-90deg) scaleY(-1); transform-origin: center"></circle>
 
       <div class="timer-value" xmlns="http://www.w3.org/1999/xhtml">
-        <span class="timer-value-mins">05</span><!--
-        --><span class="timer-value-dots">:</span><!--
-        --><span class="timer-value-secs">00</span>
+        <span class="timer-value-mins">05</span>
+          <span class="timer-value-dots">:</span>
+          <span class="timer-value-secs">00</span>
       </div>
     </svg>
     <div class="main-mistakes">
@@ -129,7 +140,7 @@
     </div>
   </section>
 
-  <!-- Игра на выбор исполнителя -->
+   Игра на выбор исполнителя
   <section class="main main--level main--level-artist">
     <a class="play-again play-again__wrap" href="#">
       <img class="play-again__img" src="/img/melody-logo-ginger.png" alt="logo" width="177" height="76">
@@ -141,9 +152,9 @@
         style="filter: url(.#blur); transform: rotate(-90deg) scaleY(-1); transform-origin: center"></circle>
 
       <div class="timer-value" xmlns="http://www.w3.org/1999/xhtml">
-        <span class="timer-value-mins">05</span><!--
-        --><span class="timer-value-dots">:</span><!--
-        --><span class="timer-value-secs">00</span>
+        <span class="timer-value-mins">05</span>
+          <span class="timer-value-dots">:</span>
+          <span class="timer-value-secs">00</span>
       </div>
     </svg>
     <div class="main-mistakes">
@@ -193,7 +204,7 @@
     </div>
   </section>
 
-  <!-- Результат игры: выигрыш -->
+   Результат игры: выигрыш
   <section class="main main--result">
     <section class="logo" title="Угадай мелодию"><h1>Угадай мелодию</h1></section>
 
@@ -205,7 +216,7 @@
     <span role="button" tabindex="0" class="main-replay">Сыграть ещё раз</span>
   </section>
 
-  <!-- Результат игры: проигрыш время вышло -->
+   Результат игры: проигрыш время вышло
   <section class="main main--result">
     <section class="logo" title="Угадай мелодию"><h1>Угадай мелодию</h1></section>
 
@@ -214,7 +225,7 @@
     <span role="button" tabindex="0" class="main-replay">Попробовать ещё раз</span>
   </section>
 
-  <!-- Результат игры: проигрыш закончились попытки -->
+   Результат игры: проигрыш закончились попытки
   <section class="main main--result">
     <section class="logo" title="Угадай мелодию"><h1>Угадай мелодию</h1></section>
 
@@ -223,7 +234,7 @@
     <span role="button" tabindex="0" class="main-replay">Попробовать ещё раз</span>
   </section>
 
-  <!-- Модальное окно: ошибка -->
+  Модальное окно: ошибка
 
   <section class="modal-error modal-error__wrap">
     <div class="modal-error__inner">
@@ -232,7 +243,7 @@
     </div>
   </section>
 
-  <!--Модальное окно: подтверждение -->
+  Модальное окно: подтверждение
 
   <section class="modal-confirm modal-confirm__wrap">
     <form class="modal-confirm__inner">
@@ -246,7 +257,7 @@
     </form>
   </section>
 
-</template>
+</template> -->
 
 <script src="js/main.js">
 </script>
