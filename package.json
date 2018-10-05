@@ -4,13 +4,15 @@
   "private": true,
   "description": "Личный проект «Угадай мелодию» от HTML Academy",
   "scripts": {
-    "eslint": "eslint .",
+    "eslint": "eslint js/",
     "build": "gulp build",
     "start": "gulp serve",
     "test": "npm run eslint && gulp test"
   },
   "devDependencies": {
     "autoprefixer": "8.5.1",
+    "babel-plugin-transform-es2015-modules-commonjs": "6.26.2",
+    "babel-register": "6.26.0",
     "browser-sync": "2.24.4",
     "css-mqpacker": "6.0.2",
     "del": "3.0.0",
@@ -20,6 +22,7 @@
     "gulp-better-rollup": "3.3.0",
     "gulp-csso": "3.0.1",
     "gulp-imagemin": "4.1.0",
+    "gulp-mocha": "6.0.0",
     "gulp-plumber": "1.2.0",
     "gulp-postcss": "7.0.1",
     "gulp-rename": "1.2.3",
@@ -28,5 +31,10 @@
   },
   "engines": {
     "node": "8"
+  },
+  "babel": {
+    "plugins": [
+      "transform-es2015-modules-commonjs"
+    ]
   }
 }

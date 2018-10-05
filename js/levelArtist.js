@@ -28,8 +28,8 @@ export default (level) => {
       <form class="main-list">
       ${[...level.answers.entries()].map(([answer], i) => `
         <div class="main-answer-wrapper">
-          <input class="main-answer-r" type="radio" id="answer-${i+1}" name="answer" value="val-${i+1}"/>
-          <label class="main-answer" for="answer-${i+1}">
+          <input class="main-answer-r" type="radio" id="answer-${i + 1}" name="answer" value="val-${i + 1}"/>
+          <label class="main-answer" for="answer-${i + 1}">
             <img class="main-answer-preview" src="http://placehold.it/134x134"
                  alt="${answer}" width="134" height="134">
             ${answer}
@@ -52,4 +52,4 @@ export const renderGenreScreen = () => {
   answers.forEach((answer)=> {
     answer.onclick = () => renderScreen(levelGenreElement(levels[`level-1`]), renderResultScreen);
   });
-}
+};

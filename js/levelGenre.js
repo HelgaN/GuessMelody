@@ -3,7 +3,6 @@ import renderScreen from './renderScreen';
 import resultVictoryElement from './resultVictory';
 import resultLossElement from './resultLoss';
 import {renderWelcomScreen} from './resultVictory';
-import welcomElement from './welcom';
 import headerTemplate from './header';
 import {lossData, victoryData, levels} from './data/data';
 import initializePlayer from './player';
@@ -32,34 +31,37 @@ export default (level) => {
 
 
               </div>
-              <input type="checkbox" name="answer" value="answer-${i+1}" id="${answer}">
+              <input type="checkbox" name="answer" value="answer-${i + 1}" id="${answer}">
               <label class="genre-answer-check" for="${answer}"></label>
             </div>`).join(``)}
 
             <button class="genre-answer-send" type="submit">Ответить</button>
           </form>
         </div>
-      </section>`;
+   </section>`;
 
-    return getElementFromTemplate(levelGenreElement);
-  };
+  return getElementFromTemplate(levelGenreElement);
+};
 
-  export const renderResultScreen = () => {
-    const playerWrappers = document.querySelectorAll(`.player-wrapper`);
+export const renderResultScreen = () => {
+  const playerWrappers = document.querySelectorAll(`.player-wrapper`);
 
-    playerWrappers.forEach((item, i) => {
-      initializePlayer(item, levels[`level-1`].question.src[i]);
-    });
+  playerWrappers.forEach((item, i) => {
+    initializePlayer(item, levels[`level-1`].question.src[i]);
+  });
 
-    const answers = document.querySelectorAll(`input[name='answer']`);
-    const button = document.querySelector(`.genre-answer-send`);
-    button.disabled = true;
+  const answers = document.querySelectorAll(`input[name='answer']`);
+  const button = document.querySelector(`.genre-answer-send`);
+  button.disabled = true;
 
-    answers.forEach((answer)=> {
-      answer.onchange = () => (answer.checked === true) ? button.disabled = false: button.disabled = true;
-      const numRandom = Math.random();
-      let screen;
-      (numRandom > 0.5) ? screen = resultVictoryElement(victoryData) : screen = resultLossElement(lossData);
-      button.onclick = () => renderScreen(screen, renderWelcomScreen);
-    });
-  }
+  answers.forEach((answer)=> {
+    answer.onchange = () => {
+      let answersChenged = document.querySelectorAll(`input[name='answer']:checked`);
+      button.disabled = !(answersChenged.length > 0);
+    };
+
+    const numRandom = Math.random();
+    button.onclick = () => renderScreen((numRandom > 0.5 ? resultVictoryElement(victoryData) : resultLossElement(lossData)), renderWelcomScreen);
+  });
+
+};

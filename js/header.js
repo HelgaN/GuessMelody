@@ -1,4 +1,3 @@
-import getElementFromTemplate from './getElementFromTemplate';
 import {initialState} from './data/data';
 
 const headerTemplate = (state) => `<a class="play-again play-again__wrap" href="#">

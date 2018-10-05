@@ -20,4 +20,4 @@ export default (data) => {
 export const renderWelcomScreen = () => {
   const button = document.querySelector(`.main-replay`);
   button.onclick = () => renderScreen(welcomElement(welcomData), renderArtistScreen);
-}
+};

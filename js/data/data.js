@@ -47,7 +47,7 @@ const welcomData = {
     Удачи!`,
     button: `Начать игру`
   }
-}
+};
 
 const lossData = {
   logo: {
@@ -59,7 +59,7 @@ const lossData = {
     main: `Время вышло!<br>Вы не успели отгадать все мелодии`,
     button: `Попробовать ещё раз`
   }
-}
+};
 
 // условные статичные данные
 
@@ -76,6 +76,6 @@ const victoryData = {
     comparison: `Вы заняли 2 место из 10. Это&nbsp;лучше чем у&nbsp;80%&nbsp;игроков`,
     button: `Сыграть ещё раз`
   }
-}
+};
 
-export {initialState, levels, welcomData, logoData, lossData, victoryData};
+export {initialState, levels, welcomData, lossData, victoryData};

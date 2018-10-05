@@ -3,6 +3,6 @@ const renderScreen = (element, renderNextScreen) => {
   app.innerHTML = ``;
   app.appendChild(element.cloneNode(true));
   renderNextScreen();
-}
+};
 
 export default renderScreen;
