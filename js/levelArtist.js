@@ -46,10 +46,10 @@ export default (level) => {
 
 export const renderGenreScreen = () => {
   const playerWrapper = document.querySelector(`.player-wrapper`);
-  initializePlayer(playerWrapper, levels[`level-0`].question.src);
+  initializePlayer(playerWrapper, levels[0].question.src);
 
   const answers = document.querySelectorAll(`.main-answer`);
   answers.forEach((answer)=> {
-    answer.onclick = () => renderScreen(levelGenreElement(levels[`level-1`]), renderResultScreen);
+    answer.onclick = () => renderScreen(levelGenreElement(levels[1]), renderResultScreen);
   });
 };

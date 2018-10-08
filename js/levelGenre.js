@@ -47,7 +47,7 @@ export const renderResultScreen = () => {
   const playerWrappers = document.querySelectorAll(`.player-wrapper`);
 
   playerWrappers.forEach((item, i) => {
-    initializePlayer(item, levels[`level-1`].question.src[i]);
+    initializePlayer(item, levels[1].question.src[i]);
   });
 
   const answers = document.querySelectorAll(`input[name='answer']`);

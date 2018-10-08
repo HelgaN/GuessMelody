@@ -1,20 +1,11 @@
-const initialState = Object.freeze({
-  level: `level-0`,
-  mins: `05`,
-  secs: `00`,
-  lives: 3,
-  questions: [`level-0`, `level-1`],
-  stats: Array(2).fill(`unknown`)
-});
-
 /*
 const level = Object.freeze({
   title: `Кто исполняет эту песню?`,
   answers: new Set([`Пелагея`, `Краснознаменная дивизия имени моей бабушки`, `Lorde`])
 });*/
 
-const levels = Object.freeze({
-  'level-0': {
+const levels = Object.freeze([
+  {
     type: `level-artist`,
     title: `Кто исполняет эту песню?`,
     question: {
@@ -24,7 +15,7 @@ const levels = Object.freeze({
     answers: new Set([`Пелагея`, `Краснознаменная дивизия имени моей бабушки`, `Lorde`])
   },
 
-  'level-1': {
+  {
     type: `level-genre`,
     title: `Выберите инди-рок треки`,
     question: {
@@ -33,6 +24,15 @@ const levels = Object.freeze({
     },
     answers: new Set([`a-1`, `a-2`, `a-3`, `a-4`])
   }
+]);
+
+const initialState = Object.freeze({
+  level: levels[0],
+  mins: `05`,
+  secs: `00`,
+  lives: 3,
+  questions: [`level-0`, `level-1`],
+  stats: Array(2).fill(`unknown`)
 });
 
 const welcomData = {
@@ -78,4 +78,16 @@ const victoryData = {
   }
 };
 
-export {initialState, levels, welcomData, lossData, victoryData};
+const setLevel = (game, levelsArray, num) => {
+  if (num < 0) {
+    throw new RangeError(`can't set a negative level number`);
+  }
+  if (num > 9) {
+    throw new RangeError(`can't set more than 10 questions`);
+  }
+  const newGame = Object.assign({}, game);
+  newGame.level = levelsArray[num];
+  return newGame;
+};
+
+export {initialState, levels, welcomData, lossData, victoryData, setLevel};
