@@ -1,25 +1,25 @@
 import assert from 'assert';
-import {initialState, setLevel, levels} from './data';
+import {initialState, currentState, nextLevel, levels} from './data';
 
 describe(`Game`, () => {
   describe(`Character levels`, () => {
     it(`should update level`, () => {
-      assert.deepEqual(levels[1], setLevel(initialState, levels, 1).level);
-    });
-    it(`shouldn't allow negative level`, () => {
-      const setNegativeLevel = () => {
-        setLevel(initialState, levels, -1);
-      };
-      assert.throws(setNegativeLevel);
+      assert(1, nextLevel(currentState).level);
     });
     it(`should be the first of the questions at the start`, () => {
-      assert.deepEqual(levels[0], initialState.level);
+      assert.equal(0, initialState.level);
     });
-    it(`shouldn't be more than 10 questions`, () => {
-      const setMoreThanTenLevel = () => {
-        setLevel(initialState, levels, 10);
-      };
-      assert.throws(setMoreThanTenLevel);
+    it(`should be 10 questions`, () => {
+      assert(10, levels.length);
     });
   });
+
+  describe(`Duration of the game`, () => {
+    it(`Duration of the game should be 2 minutes`, () => {
+      assert.equal(2, initialState.mins);
+      assert.equal(0, initialState.secs);
+    });
+  });
+
+
 });

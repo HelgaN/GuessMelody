@@ -3,7 +3,8 @@ import getElementFromTemplate from './getElementFromTemplate';
 import renderScreen from './renderScreen';
 import levelArtistElement from './levelArtist';
 import {renderGenreScreen} from './levelArtist';
-import {levels} from './data/data';
+import {levels, currentState} from './data/data';
+import timer from './timer';
 
 export default (data) => {
   const welcomRulesDescription = `<h2 class="title main-title">${data.content.title}</h2>
@@ -22,5 +23,8 @@ export default (data) => {
 
 export const renderArtistScreen = () => {
   const playButton = document.querySelector(`.main-play`);
-  playButton.onclick = () => renderScreen(levelArtistElement(levels[0]), renderGenreScreen);
+  playButton.addEventListener(`click`, function () {
+    renderScreen(levelArtistElement(levels[0]), renderGenreScreen);
+    timer(currentState);
+  });
 };

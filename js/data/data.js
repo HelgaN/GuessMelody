@@ -23,17 +23,100 @@ const levels = Object.freeze([
       answers: [false, true, true, false]
     },
     answers: new Set([`a-1`, `a-2`, `a-3`, `a-4`])
+  },
+
+  {
+    type: `level-genre`,
+    title: `Выберите инди-рок треки`,
+    question: {
+      src: [`sound/MotelRock-HanuDixit.mp3`, `sound/MountainDub-GunnarOlsen.mp3`, `sound/NoCulture-SilentPartner.mp3`, `sound/YouAreMyRainbow-UnicornHeads.mp3`],
+      answers: [false, true, true, false]
+    },
+    answers: new Set([`a-1`, `a-2`, `a-3`, `a-4`])
+  },
+
+  {
+    type: `level-genre`,
+    title: `Выберите инди-рок треки`,
+    question: {
+      src: [`sound/MotelRock-HanuDixit.mp3`, `sound/MountainDub-GunnarOlsen.mp3`, `sound/NoCulture-SilentPartner.mp3`, `sound/YouAreMyRainbow-UnicornHeads.mp3`],
+      answers: [false, true, true, false]
+    },
+    answers: new Set([`a-1`, `a-2`, `a-3`, `a-4`])
+  },
+
+  {
+    type: `level-artist`,
+    title: `Кто исполняет эту песню?`,
+    question: {
+      src: `sound/Donors-LetterBox.mp3`,
+      answer: `Пелагея`
+    },
+    answers: new Set([`Пелагея`, `Краснознаменная дивизия имени моей бабушки`, `Lorde`])
+  },
+
+  {
+    type: `level-genre`,
+    title: `Выберите инди-рок треки`,
+    question: {
+      src: [`sound/MotelRock-HanuDixit.mp3`, `sound/MountainDub-GunnarOlsen.mp3`, `sound/NoCulture-SilentPartner.mp3`, `sound/YouAreMyRainbow-UnicornHeads.mp3`],
+      answers: [false, true, true, false]
+    },
+    answers: new Set([`a-1`, `a-2`, `a-3`, `a-4`])
+  },
+
+  {
+    type: `level-artist`,
+    title: `Кто исполняет эту песню?`,
+    question: {
+      src: `sound/Donors-LetterBox.mp3`,
+      answer: `Пелагея`
+    },
+    answers: new Set([`Пелагея`, `Краснознаменная дивизия имени моей бабушки`, `Lorde`])
+  },
+
+  {
+    type: `level-artist`,
+    title: `Кто исполняет эту песню?`,
+    question: {
+      src: `sound/Donors-LetterBox.mp3`,
+      answer: `Пелагея`
+    },
+    answers: new Set([`Пелагея`, `Краснознаменная дивизия имени моей бабушки`, `Lorde`])
+  },
+
+  {
+    type: `level-genre`,
+    title: `Выберите инди-рок треки`,
+    question: {
+      src: [`sound/MotelRock-HanuDixit.mp3`, `sound/MountainDub-GunnarOlsen.mp3`, `sound/NoCulture-SilentPartner.mp3`, `sound/YouAreMyRainbow-UnicornHeads.mp3`],
+      answers: [false, true, true, false]
+    },
+    answers: new Set([`a-1`, `a-2`, `a-3`, `a-4`])
+  },
+
+  {
+    type: `level-artist`,
+    title: `Кто исполняет эту песню?`,
+    question: {
+      src: `sound/Donors-LetterBox.mp3`,
+      answer: `Пелагея`
+    },
+    answers: new Set([`Пелагея`, `Краснознаменная дивизия имени моей бабушки`, `Lorde`])
   }
+
 ]);
 
 const initialState = Object.freeze({
-  level: levels[0],
-  mins: `05`,
+  level: 0,
+  mins: `02`,
   secs: `00`,
   lives: 3,
   questions: [`level-0`, `level-1`],
   stats: Array(2).fill(`unknown`)
 });
+
+const currentState = Object.assign({}, initialState);
 
 const welcomData = {
   logo: {
@@ -78,16 +161,17 @@ const victoryData = {
   }
 };
 
-const setLevel = (game, levelsArray, num) => {
-  if (num < 0) {
+const nextLevel = (game) => {
+  const next = game.level + 1;
+  if (next < 0) {
     throw new RangeError(`can't set a negative level number`);
   }
-  if (num > 9) {
+  if (next > 9) {
     throw new RangeError(`can't set more than 10 questions`);
   }
-  const newGame = Object.assign({}, game);
-  newGame.level = levelsArray[num];
-  return newGame;
+  game = Object.assign({}, game);
+  game.level = next;
+  return game;
 };
 
-export {initialState, levels, welcomData, lossData, victoryData, setLevel};
+export {initialState, currentState, levels, welcomData, lossData, victoryData, nextLevel};
